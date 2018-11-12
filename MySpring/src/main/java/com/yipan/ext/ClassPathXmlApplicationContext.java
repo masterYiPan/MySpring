@@ -24,10 +24,10 @@ public class ClassPathXmlApplicationContext {
 			new AttriAssign(object);
 		}
 	}
-	public Object getBean(String beanId) throws Exception {
-		if(beanId == null)
+	public Object getBean(Class<?> beanClass) throws Exception {
+		if(beanClass == null)
 			throw new Exception("beanId不能为空");
-		Object object = beans.get(beanId);//使用容器获取bean
+		Object object = beans.get(beanClass.getSimpleName());//使用容器获取bean
 		return object;
 	}
 	//初始化对象
